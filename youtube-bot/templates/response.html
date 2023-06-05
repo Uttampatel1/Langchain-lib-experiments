@@ -2,6 +2,91 @@
 <html>
 <head>
     <title>YouTube Q&amp;A</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        hr {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border: 0;
+            border-top: 1px solid #ccc;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.5;
+            opacity: 0;
+            animation: fade-in 0.5s ease forwards;
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var form = document.querySelector("form");
+            var response = document.querySelector("p");
+
+            form.addEventListener("submit", function(event) {
+                event.preventDefault();
+                var questionInput = document.getElementById("question");
+                var question = questionInput.value;
+
+                // Simulate a server response
+                setTimeout(function() {
+                    response.textContent = "Your question: " + question;
+                    response.style.opacity = 1;
+                }, 1000);
+
+                questionInput.value = "";
+            });
+        });
+    </script>
 </head>
 <body>
     <h1>YouTube Q&amp;A</h1>
