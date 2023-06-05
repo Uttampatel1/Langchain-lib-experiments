@@ -40,6 +40,21 @@ button[type="submit"]:hover {
     background-color: #45a049;
 }
 
+#qa-container {
+    margin-top: 20px;
+}
+
+#query-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#qa-result {
+    margin-top: 20px;
+}
+
 h2 {
     margin-bottom: 10px;
 }

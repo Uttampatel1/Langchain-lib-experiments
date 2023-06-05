@@ -12,7 +12,7 @@ from langchain.prompts.chat import (
 )
 import textwrap
 
-OPENAI_API_KEY = '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'
+OPENAI_API_KEY = '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'
 # OPENAI_API_KEY = "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"
 
 embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY,model='text-embedding-ada-002')

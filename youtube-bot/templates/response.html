@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YouTube Q&amp;A</title>
+</head>
+<body>
+    <h1>YouTube Q&amp;A</h1>
+    <hr>
+    <h2>Ask a question:</h2>
+    <form method="POST" action="/ask">
+        <label for="question">Question:</label>
+        <input type="text" id="question" name="question" required>
+        <button type="submit">Ask</button>
+    </form>
+    <hr>
+    <h2>Response:</h2>
+    <p>{{ response }}</p>
+</body>
+</html>
