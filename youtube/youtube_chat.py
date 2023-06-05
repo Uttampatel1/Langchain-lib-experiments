@@ -12,15 +12,19 @@ from langchain.prompts.chat import (
 )
 import textwrap
 
-load_dotenv(find_dotenv())
-embeddings = OpenAIEmbeddings()
+# load_dotenv(find_dotenv())
+
+OPENAI_API_KEY = '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'
+# OPENAI_API_KEY = "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"
+
+embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY,model='text-embedding-ada-002')
 
 
 def create_db_from_youtube_video_url(video_url):
     loader = YoutubeLoader.from_youtube_url(video_url)
     transcript = loader.load()
 
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=600, chunk_overlap=100)
     docs = text_splitter.split_documents(transcript)
 
     db = FAISS.from_documents(docs, embeddings)
@@ -29,14 +33,14 @@ def create_db_from_youtube_video_url(video_url):
 
 def get_response_from_query(db, query, k=4):
     """
-    gpt-3.5-turbo can handle up to 4097 tokens. Setting the chunksize to 1000 and k to 4 maximizes
+    gpt-3.5-turbo can handle up to 4097 tokens. Setting the chunksize to 800 and k to 4 maximizes
     the number of tokens to analyze.
     """
 
     docs = db.similarity_search(query, k=k)
     docs_page_content = " ".join([d.page_content for d in docs])
 
-    chat = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.2)
+    chat = ChatOpenAI(openai_api_key=OPENAI_API_KEY ,model_name="gpt-3.5-turbo", temperature=0.2)
 
     # Template to use for the system message prompt
     template = """
@@ -68,7 +72,7 @@ def get_response_from_query(db, query, k=4):
 
 
 # Example usage:
-video_url = "https://www.youtube.com/watch?v=L_Guz73e6fw"
+video_url = "https://www.youtube.com/watch?v=6n5ngB88DHU"
 db = create_db_from_youtube_video_url(video_url)
 
 while True:
