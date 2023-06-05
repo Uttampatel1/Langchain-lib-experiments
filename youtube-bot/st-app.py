@@ -71,19 +71,24 @@ def get_response_from_query(db, query, k=4):
 
 def main():
     st.title("YouTube Video Q&A App")
+    global OPENAI_API_KEY
+    OPENAI_API_KEY = st.text_input("Enter Your OpenAI API key:")
 
     video_url = st.text_input("Enter YouTube Video URL")
     
+    
     if st.button("Train Model"):
-        db = create_db_from_youtube_video_url(video_url)
-        st.write('Train Model is successfully!')
+        if OPENAI_API_KEY:
+            db = create_db_from_youtube_video_url(video_url)
+            st.write('Train Model is successfully!')
         
     
     query = st.text_input("Ask a question")
     
     if st.button("Get Answer"):
-        response, docs = get_response_from_query(db, query)
-        st.text_area("Answer", value=textwrap.fill(response, width=50))
+        if OPENAI_API_KEY:
+            response, docs = get_response_from_query(db, query)
+            st.text_area("Answer", value=textwrap.fill(response, width=50))
 
 
 if __name__ == "__main__":
