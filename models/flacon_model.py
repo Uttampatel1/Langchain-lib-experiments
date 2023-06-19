@@ -19,9 +19,9 @@ HUGGINGFACEHUB_API_TOKEN = os.environ["HUGGINGFACEHUB_API_TOKEN"]
 # Load the LLM model from the HuggingFaceHub
 # --------------------------------------------------------------
 
-# repo_id = "tiiuae/falcon-7b-instruct"  # See https://huggingface.co/models?pipeline_tag=text-generation&sort=downloads for some other options
+repo_id = "tiiuae/falcon-7b-instruct"  # See https://huggingface.co/models?pipeline_tag=text-generation&sort=downloads for some other options
 # repo_id ="bigscience/bloom-560m"
-repo_id ="tiiuae/falcon-40b-instruct"
+# repo_id ="tiiuae/falcon-40b-instruct"
 
 falcon_llm = HuggingFaceHub(
     repo_id=repo_id, model_kwargs={"temperature": 0.1, "max_new_tokens": 500}

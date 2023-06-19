@@ -151,6 +151,7 @@ def ask_function_calling(query):
     messages = [{"role": "user", "content": query}]
 
     response = openai.ChatCompletion.create(
+        
         model="gpt-4-0613",
         messages=messages,
         functions = function_descriptions,
@@ -181,6 +182,6 @@ def ask_function_calling(query):
         print(response)
 
 
-user_query = "Turn on the light"
+user_query = "What are the top gainers today?"
 
 ask_function_calling(user_query)
