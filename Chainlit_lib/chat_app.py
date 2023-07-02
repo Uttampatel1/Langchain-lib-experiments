@@ -22,9 +22,16 @@ llm = HuggingFaceHub(
 # template = """Question: {question}
 # Answer: """
 
+template = """
+You are a story teller:
+You can generate a short story based on a simple narrative, the story should be on more than 20 words;
 
-template = """Answer the following question: {question}
+CONTEXT: {question}
+STORY:
 """
+
+# template = """Answer the following question: {question}
+# """
 
 prompt = PromptTemplate(template=template, input_variables=["question"])
 llm_chain = LLMChain(prompt=prompt, llm=llm,verbose=True)

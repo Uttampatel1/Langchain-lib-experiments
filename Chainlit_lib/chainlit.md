@@ -10,6 +10,8 @@ The user interface of this chatbot application is built with ChainLit. ChainLit 
 
 The UI elements are designed to be intuitive and user-friendly, enabling easy input of questions and displaying the chatbot's responses in a readable format. The UI components are carefully crafted to enhance the overall user experience and ensure a smooth interaction with the chatbot. 🎨🖌️🎉
 
+create by UTTAM PIPALIYA
+
 ## How to Use  ❓📚  
 
 1.  Ask your question or state your query in a clear and concise manner. 📝
@@ -47,3 +49,5 @@ Feel free to ask any question, and the chatbot will do its best to provide a hel
     ```
 
 3.  Ask your question and enjoy the chatbot's responses! 🤖💬
+
+

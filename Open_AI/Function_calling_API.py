@@ -172,6 +172,6 @@ def ask_function_calling(query):
 #                 and what are the latest news about stock that might case the price movements?"""
 user_query = """what is the stock that has the biggest price movment today 
                 and what are the latest news about stock that might case the price movements?
-                please add record to airtable with the stock, news summary & price move."""
+                please add record to airtable with the stock, news_summary & price move."""
 
 ask_function_calling(user_query)
