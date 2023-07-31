@@ -15,7 +15,7 @@ from langchain.prompts.chat import (
 
 app = Flask(__name__)
 
-OPENAI_API_KEY = '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'
+OPENAI_API_KEY = ''
 # OPENAI_API_KEY = "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"
 
 embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY,model='text-embedding-ada-002')
